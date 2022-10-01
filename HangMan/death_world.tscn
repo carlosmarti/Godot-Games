@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://bti72tekf41q6"]
+
+[ext_resource type="Script" path="res://death_world.gd" id="1_grq6j"]
+[ext_resource type="FontFile" uid="uid://ctwsjb0d0pnod" path="res://BLOODY.TTF" id="2_mpjdc"]
+[ext_resource type="PackedScene" uid="uid://bj4rfldpwsc23" path="res://hangman.tscn" id="3_u1h8e"]
+[ext_resource type="PackedScene" uid="uid://p7h5ohylyl0s" path="res://base.tscn" id="4_3wcj8"]
+
+[node name="DeathWorld" type="Node2D"]
+script = ExtResource("1_grq6j")
+metadata/_edit_lock_ = true
+
+[node name="Word" type="Label" parent="."]
+offset_right = 1153.0
+offset_bottom = 115.0
+theme_override_fonts/font = ExtResource("2_mpjdc")
+theme_override_font_sizes/font_size = 58
+text = " "
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 514.0
+offset_top = 561.0
+offset_right = 630.0
+offset_bottom = 621.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 525.0
+offset_top = 531.0
+offset_right = 631.0
+offset_bottom = 557.0
+text = "Guess Here!"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 644.0
+offset_top = 574.0
+offset_right = 715.0
+offset_bottom = 609.0
+text = "Enter"
+
+[node name="hangman" parent="." instance=ExtResource("3_u1h8e")]
+position = Vector2(571, 209)
+
+[node name="base" parent="." instance=ExtResource("4_3wcj8")]
+position = Vector2(406, 255)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

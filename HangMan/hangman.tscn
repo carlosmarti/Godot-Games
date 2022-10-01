@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj4rfldpwsc23"]
+
+[ext_resource type="Texture2D" uid="uid://ccdxbmaf7yvhs" path="res://head.png" id="1_grcin"]
+[ext_resource type="Texture2D" uid="uid://d0e8f4fsuwp3k" path="res://body.png" id="2_u0m0l"]
+
+[node name="hangman" type="Node2D"]
+
+[node name="head" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_grcin")
+
+[node name="torso" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(4, 80)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_u0m0l")
+
+[node name="left-arm" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-36, 68)
+rotation = 0.733679
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_u0m0l")
+
+[node name="right-arm" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(46, 65)
+rotation = -0.753413
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_u0m0l")
+
+[node name="left-leg" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-13, 180)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_u0m0l")
+
+[node name="right-leg" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(17, 181)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_u0m0l")

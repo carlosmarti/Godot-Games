@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://p7h5ohylyl0s"]
+
+[ext_resource type="Texture2D" uid="uid://d0e8f4fsuwp3k" path="res://body.png" id="1_tekbm"]
+
+[node name="base" type="Sprite2D"]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_tekbm")
+
+[node name="pole" type="Sprite2D" parent="."]
+position = Vector2(117.143, -114.286)
+rotation = -1.56731
+texture = ExtResource("1_tekbm")
