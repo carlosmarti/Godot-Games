@@ -16,30 +16,39 @@ func _ready():
 	for c in randomWord:
 			word = word.insert(0, "-")
 	
-	$Word.text = word
+	$game.get_child(0).text = word
 	print(randomWord)
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
 	pass
 
 
 func _on_button_pressed():
 	var charGuess = true
-	if $TextEdit.text.length() > 1:
+	if $game.get_child(1).text.length() > 1:
 		charGuess = false
 	
 	print("going into checkGuess")
-	if not checkGuess($TextEdit.text, charGuess):
-		$Label.text = "Wrong!"
+	if not checkGuess($game.get_child(1).text, charGuess):
+		$game.get_child(2).text = "Wrong!"
 		$Timer.start(0.5)
+		showLimb()
 	
-	$TextEdit.text = ""
+	$game.get_child(1).text = ""
+	
+	if $game.get_child(4).areAllLimbsShown():
+		gameOver()
+
+func gameOver():
+	$game.visible = false
+	$gameover.visible = true
+
+func reset():
+	pass
+
+func showLimb():
+	$game.get_child(4).showNextLimb()
 
 func _changeText():
-	$Label.text = "Guess Here!"
+	$game.get_child(2).text = "Guess Here!"
 
 func checkGuess(guess, cGuess):
 	if cGuess:
@@ -62,7 +71,7 @@ func checkGuess(guess, cGuess):
 	else:
 		if entireWordGuess(guess):
 			word = randomWord
-			$Word.text = word
+			$game.get_child(0).text = word
 			return true
 	
 	return false
@@ -71,7 +80,7 @@ func showCharacters(charPos):
 	for num in charPos:
 		word[num] = randomWord[num]
 	
-	$Word.text = word
+	$game.get_child(0).text = word
 
 func entireWordGuess(g) -> bool:
 	
@@ -86,4 +95,4 @@ func entireWordGuess(g) -> bool:
 
 
 func _on_timer_timeout():
-	$Label.text = "Guess Here!"
+	$game.get_child(2).text = "Guess Here!"
