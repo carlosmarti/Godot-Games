@@ -36,13 +36,21 @@ func _on_button_pressed():
 	
 	if $game.get_child(4).areAllLimbsShown():
 		gameOver()
+	
+	if checkWinningCondition():
+		$game.visible = false
+		$gamewon.visible = true
+
+func checkWinningCondition():
+	for c in word:
+		if c == "-":
+			return false
+	
+	return true
 
 func gameOver():
 	$game.visible = false
 	$gameover.visible = true
-
-func reset():
-	pass
 
 func showLimb():
 	$game.get_child(4).showNextLimb()
@@ -96,3 +104,19 @@ func entireWordGuess(g) -> bool:
 
 func _on_timer_timeout():
 	$game.get_child(2).text = "Guess Here!"
+
+
+func resetButtonPressed():
+	var randomNumber = random.randi_range(0, words.size() - 1)
+	randomWord = words[randomNumber]
+	
+	word = ""
+	for c in randomWord:
+			word = word.insert(0, "-")
+	
+	$game.get_child(0).text = word
+	$game.get_child(4).reset()
+	
+	$gameover.visible = false
+	$gamewon.visible = false
+	$game.visible = true

@@ -17,3 +17,8 @@ func showNextLimb():
 
 func areAllLimbsShown():
 	return allLimbsShown
+
+func reset():
+	for l in limbs:
+		l.visible = false
+	allLimbsShown = false

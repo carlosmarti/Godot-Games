@@ -36,6 +36,29 @@ theme_override_fonts/font = ExtResource("2_mpjdc")
 theme_override_font_sizes/font_size = 32
 text = "Play Again"
 
+[node name="gamewon" type="Node2D" parent="."]
+visible = false
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="gamewon"]
+offset_right = 1150.0
+offset_bottom = 320.0
+theme = SubResource("Theme_gvx3x")
+theme_override_fonts/font = ExtResource("2_mpjdc")
+theme_override_font_sizes/font_size = 84
+text = "You Win!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="gamewon"]
+offset_left = 495.0
+offset_top = 289.0
+offset_right = 649.0
+offset_bottom = 372.0
+theme_override_fonts/font = ExtResource("2_mpjdc")
+theme_override_font_sizes/font_size = 32
+text = "Play Again"
+
 [node name="game" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
@@ -76,4 +99,6 @@ position = Vector2(568, 220)
 position = Vector2(406, 255)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="gameover/Button" to="." method="resetButtonPressed"]
+[connection signal="pressed" from="gamewon/Button" to="." method="resetButtonPressed"]
 [connection signal="pressed" from="game/Button" to="." method="_on_button_pressed"]
