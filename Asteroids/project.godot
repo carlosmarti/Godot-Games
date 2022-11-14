@@ -12,8 +12,12 @@ config_version=5
 
 config/name="Asteroids"
 run/main_scene="res://Scenes/MainMenu/MainScreen.tscn"
-config/features=PackedStringArray("4.0", "Vulkan Clustered")
+config/features=PackedStringArray("4.0")
 config/icon="res://icon.svg"
+
+[dotnet]
+
+project/assembly_name="Asteroids"
 
 [rendering]
 
