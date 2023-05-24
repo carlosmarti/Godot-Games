@@ -15,10 +15,18 @@ run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Score="*res://score.gd"
+
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=860
+
+[dotnet]
+
+project/assembly_name="TapIt"
 
 [rendering]
 

@@ -5,16 +5,24 @@ extends Node2D
 func _ready():
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.is_pressed():
 			if event.button_index == MOUSE_BUTTON_LEFT:
 				if event.position.x < 320:
-					print("Green side selected")
+					if $Selector.getCurrentSide() == 0:
+						print("Green Correct Choice")
+						var score = get_node("/root/Score")
+						score.increamentScore()
+						$Selector.selectNewSide()
+					else:
+						reset()
 				elif event.position.x > 320:
-					print("Purple side selected")
+					if $Selector.getCurrentSide() == 1:
+						print("Purple Correct Choice")
+						$Selector.selectNewSide()
+					else:
+						reset()
+
+func reset():
+	print("You lost bruv!")
