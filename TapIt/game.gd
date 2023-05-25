@@ -1,9 +1,10 @@
 extends Node2D
 
+var score
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	score = get_node("/root/Score")
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -12,17 +13,23 @@ func _input(event):
 				if event.position.x < 320:
 					if $Selector.getCurrentSide() == 0:
 						print("Green Correct Choice")
-						var score = get_node("/root/Score")
 						score.increamentScore()
 						$Selector.selectNewSide()
 					else:
-						reset()
+						gameOver()
 				elif event.position.x > 320:
 					if $Selector.getCurrentSide() == 1:
 						print("Purple Correct Choice")
+						score.increamentScore()
 						$Selector.selectNewSide()
 					else:
-						reset()
+						gameOver()
+
+func gameOver():
+	$Selector.hide()
+	$GameOver.show()
 
 func reset():
-	print("You lost bruv!")
+	score.storeHighScore()
+	$Selector.show()
+	$GameOver.hide()

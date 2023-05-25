@@ -5,7 +5,7 @@ enum Select {arrowLeft, arrowRight, colorLeft, colorRight}
 
 var leftArrow = preload("res://arrow.png")
 var rightArrow = preload("res://rightArrow.png")
-var purpleColor = Color(0,153, 153, 1)
+var purpleColor = Color(.43,0, .43, 1)
 var greenColor = Color(0,1,0,1)
 
 # Called when the node enters the scene tree for the first time.

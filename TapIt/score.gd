@@ -9,8 +9,19 @@ func _ready():
 
 func increamentScore():
 	currentScore += 1
-	var scoreLabel = get_node("/root/Game/HUD/topUI/CurrentScoreLabel")
-	scoreLabel.text = "CurrentScore: " + str(currentScore)
+	changeScore()
 
 func storeHighScore():
-	highScore = currentScore
+	if highScore <= currentScore:
+		highScore = currentScore
+	
+	currentScore = 0
+	
+	changeScore()
+
+func changeScore():
+	var scoreLabel = get_node("/root/Game/HUD/topUI/CurrentScoreLabel")
+	var highScoreLabel = get_node("/root/Game/HUD/topUI/HighScoreLabel")
+	
+	scoreLabel.text = "CurrentScore: " + str(currentScore)
+	highScoreLabel.text = "HighScore: " + str(highScore)

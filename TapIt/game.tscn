@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cayp8tdvgsle7"]
+[gd_scene load_steps=4 format=3 uid="uid://cayp8tdvgsle7"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_x3o46"]
 [ext_resource type="PackedScene" uid="uid://cwrpnaapqfwbw" path="res://selector.tscn" id="2_ia8xt"]
+[ext_resource type="PackedScene" uid="uid://b4rf2o5ifpsly" path="res://game_over.tscn" id="3_k5fwa"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_x3o46")
@@ -48,3 +49,6 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 26
 text = "HighScore:  0"
+
+[node name="GameOver" parent="." instance=ExtResource("3_k5fwa")]
+visible = false
