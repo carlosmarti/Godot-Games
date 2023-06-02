@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgx2ismkdaxfa"]
+
+[ext_resource type="Script" path="res://game.cs" id="1_jyoah"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_jyoah")
+
+[node name="Green" type="ColorRect" parent="."]
+offset_right = 318.0
+offset_bottom = 958.0
+color = Color(0, 0.698039, 0, 1)
+
+[node name="Purple" type="ColorRect" parent="."]
+offset_left = 319.0
+offset_top = -2.0
+offset_right = 639.0
+offset_bottom = 956.0
+color = Color(0.537255, 0, 0.619608, 1)
