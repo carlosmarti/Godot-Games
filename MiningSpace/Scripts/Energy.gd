@@ -1,16 +1,24 @@
 extends Node
 class_name EnergyComponent
 
-@export var energy = 100
+@export var maxEnergy = 100
+
+var energy
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	energy = maxEnergy
 
 func consumedEnergy(amount):
-	energy -= amount
+	if (energy - amount) < 0:
+		energy = 0
+	else:
+		energy -= amount
 
 func addEnergy(amount):
-	energy += amount
+	if (energy + amount) > maxEnergy:
+		energy = maxEnergy
+	else:
+		energy += amount
 
 func getEnergy():
 	return energy

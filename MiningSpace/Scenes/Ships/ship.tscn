@@ -12,16 +12,19 @@ scale = Vector2(0.5, 0.5)
 gravity_scale = 0.0
 max_contacts_reported = 5
 contact_monitor = true
+linear_damp = 2.0
+angular_damp = 1.0
 script = ExtResource("1_h4t2t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_4y6m4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
 texture = ExtResource("1_g4eye")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(4, 122)
+position = Vector2(126, -4)
 
 [node name="EnergyComponent" type="Node" parent="."]
 script = ExtResource("3_jo88f")
